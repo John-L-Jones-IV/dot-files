@@ -26,6 +26,14 @@ set so=7            " set 7 lines to the cursor when moving vertically using j/k
 set ruler           " always show current postion
 
 "=== Searching ==="
+=======
+set shiftwidth=2    " when shift indenting, move 2 spaces
+set softtabstop=2   " indent using 2 spaces
+set expandtab       " use spaces for tabs
+filetype indent on  " indent per file type conventions
+
+"=== UI ==="
+set number	        " show line numbers in file
 set hlsearch        " highlight text matching search results
 set incsearch       " show search matches while typing
 set ignorecase      " ignore case when searching...
