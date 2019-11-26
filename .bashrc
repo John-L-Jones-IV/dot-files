@@ -118,3 +118,6 @@ fi
 
 # my custom aliases
 alias cdproj='source ~/Scripts/cdproj.sh'
+
+# set up ROS env with every terminal open
+source /opt/ros/melodic/setup.bash

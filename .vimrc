@@ -26,7 +26,6 @@ set so=7            " set 7 lines to the cursor when moving vertically using j/k
 set ruler           " always show current postion
 
 "=== Searching ==="
-=======
 set shiftwidth=2    " when shift indenting, move 2 spaces
 set softtabstop=2   " indent using 2 spaces
 set expandtab       " use spaces for tabs
