@@ -6,4 +6,7 @@
 !.gitconfig
 !.bashrc
 !.vimrc/*
+!.vimrc/.*
+!.vimrc/**
+!.vimrc/.**
 !Scripts/*

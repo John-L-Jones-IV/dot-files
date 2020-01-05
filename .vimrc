@@ -1,8 +1,15 @@
-colorscheme badwolf  " a bad ass colorscheme
-" https://github.com/sjl/badwolf/blob/master/colors/badwolf.vim saved to ~/.vim/colors/
+"""=== Plugins ==="""
+execute pathogen#infect()
+"""=== Colors ==="
+let g:gruvbox_contrast_dark ='hard'
+set bg=dark
+set termguicolors
+colorscheme gruvbox
 
 "=== General ==="
+syntax on
 set autoread        " reload files changed outside vim
+filetype plugin on
 
 "=== Indention ==="
 set autoindent
@@ -29,7 +36,6 @@ set ruler           " always show current postion
 set shiftwidth=2    " when shift indenting, move 2 spaces
 set softtabstop=2   " indent using 2 spaces
 set expandtab       " use spaces for tabs
-filetype indent on  " indent per file type conventions
 
 "=== UI ==="
 set number	        " show line numbers in file
@@ -45,4 +51,3 @@ set nowb
 
 "=== Spell check ==="
 set spelllang=en_us
-autocmd BufNewFile,BufRead *.tex set spell " automatically turn on spell check for .tex fiels
