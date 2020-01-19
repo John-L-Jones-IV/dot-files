@@ -1,53 +1,86 @@
 """=== Plugins ==="""
-execute pathogen#infect()
-"""=== Colors ==="
-let g:gruvbox_contrast_dark ='hard'
-set bg=dark
-set termguicolors
-colorscheme gruvbox
+set nocompatible			" be iMproved, required
+filetype off				" required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim	" add Vundle plugin manager to runtimepath
+call vundle#rc()			" initialize for rc file
+call vundle#begin()			" start manager
+Plugin 'VundleVim/Vundle.vim'
+" auto completes
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'davidhalter/jedi-vim'
+" Plugin 'vim-syntastic/syntastic'
+" color shcemes
+Plugin 'morhetz/gruvbox'		" ensure this is the last plug in loaded
+call vundle#end()
 
-"=== General ==="
-syntax on
-set autoread        " reload files changed outside vim
-filetype plugin on
+""""=== General ==="""
+filetype plugin on			" enable filetype specific plugins/settings
+set autoread				" reload files changed outside vim
 
-"=== Indention ==="
-set autoindent
-set smartindent
-set smarttab
-set tabstop=2       " interpret tabs to be 2 spaces wide
-set softtabstop=2   " indent using 2 spaces
-set shiftwidth=2    " when shift indenting, move 2 spaces
-set expandtab       " when you hit tab, insert spaces
-filetype indent on  " indent per file type conventions
+"""=== Colors ===""""
+colorscheme gruvbox			" a badass colorscheme
+set background=dark			" dark theme
+let g:gruvbox_contrast_dark ='hard'	" high contrast in dark theme
+set termguicolors			" enable extended range 
 
-"=== UI ==="
-syntax enable       " enable syntax processing
-set linebreak       " wrap lines at convenient points
-set showcmd         " show command in bottom bar
-set number	        " show line numbers in file
-set showmode        " show current mode down the bottom
-set lazyredraw      " be lazy on graphics. save processing power
-set showmatch       " show matching brackets when text indicator is over them
-set so=7            " set 7 lines to the cursor when moving vertically using j/k
-set ruler           " always show current postion
+"""=== Indention ===""""
+set autoindent				" use indentation from last line when starting a new line
+set smartindent				" use language specific indenting conventions
+set smarttab				" with noexpandtab use min space, ow. use spaces when using tab button
+set noexpandtab				" when you hit tab use a tab, not eqiv. num of spaces
+filetype indent on			" indent per file type conventions
 
-"=== Searching ==="
-set shiftwidth=2    " when shift indenting, move 2 spaces
-set softtabstop=2   " indent using 2 spaces
-set expandtab       " use spaces for tabs
+"""=== UI ==="""		
+syntax enable				" enable syntax processing
+set cursorline				" highlight current line
+set linebreak				" wrap lines at convenient points
+set showcmd					" show command in bottom bar
+set number					" show line numbers in file
+set showmode				" show current mode down the bottom
+set lazyredraw				" be lazy on graphics. save processing power
+set showmatch				" show matching brackets when text indicator is over them
+set so=7				" set 7 lines to the cursor when moving vertically using j/k
+set ruler				" always show current postion
+set wildmenu				" visual autocomplete for command menu
+set showbreak=↪\ 
+set listchars+=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨,space:•
 
-"=== UI ==="
-set number	        " show line numbers in file
-set hlsearch        " highlight text matching search results
-set incsearch       " show search matches while typing
-set ignorecase      " ignore case when searching...
-set smartcase       " ...unless we type a capital
+"""=== Folding ==="""
+set foldmethod=indent  
+set foldenable				" enable folding
+set foldlevelstart=99			" open most folds by default set foldmethod=indent
+set foldlevel=99			" start unfolded
+nnoremap <space> za
 
-"=== Turn off swap files ==="
+"""=== Searching  ==="""
+set hlsearch				" highlight text matching search results
+set incsearch				" show search matches while typing
+set ignorecase				" ignore case when searching...
+set smartcase				" ...unless we type a capital
+
+"""=== Movement ==="""
+" move vertically by visual line i.e. include wrapped lines in movement
+nnoremap j gj
+nnoremap k gk
+" better split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"""=== Better cut & paste  ==="""
+set pastetoggle=<F2>
+set clipboard=unnamed
+
+"""=== Turn off swap files ==="""
 set noswapfile
 set nobackup
 set nowb
 
-"=== Spell check ==="
+" easier moving of code blocks 
+vnoremap < <gv
+vnoremap < <gv
+
+"""=== Spell check ==="""
 set spelllang=en_us
